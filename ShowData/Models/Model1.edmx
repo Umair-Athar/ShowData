@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuaestorClickItSharedModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="Get_Mn_Info" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tx_id" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="QuaestorClickItSharedModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuaestorClickItSharedModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QuaestorClickItSharedEntities1" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="Get_Mn_Info" ReturnType="Collection(QuaestorClickItSharedModel.Get_Mn_Info_Result)">
+            <Parameter Name="tx_id" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="Get_Mn_Info_Result">
+          <Property Type="String" Name="username" Nullable="false" />
+          <Property Type="Int32" Name="consumedshares" Nullable="false" />
+          <Property Type="Int32" Name="remaining" Nullable="false" />
+          <Property Type="Int32" Name="packof" Nullable="false" />
+          <Property Type="String" Name="label" Nullable="true" />
+          <Property Type="Int32" Name="shareadded" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuaestorClickItSharedModelStoreContainer" CdmEntityContainer="QuaestorClickItSharedEntities1" >
+          <FunctionImportMapping FunctionImportName="Get_Mn_Info" FunctionName="QuaestorClickItSharedModel.Store.Get_Mn_Info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="QuaestorClickItSharedModel.Get_Mn_Info_Result">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="consumedshares" ColumnName="consumedshares" />
+                <ScalarProperty Name="remaining" ColumnName="remaining" />
+                <ScalarProperty Name="packof" ColumnName="packof" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="shareadded" ColumnName="shareadded" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

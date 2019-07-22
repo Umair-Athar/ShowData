@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.TextBox("tx_id")
+<input id="Submit1" type="submit" value="Search" />
+
+<table class="table table-condensed table-hover">
+
+    <thead>
+        <tr>
+            <th>username</th>
+            <th>consumedshares</th>
+            <th>remaining</th>
+            <th>packof</th>
+            <th>label</th>
+            <th>shareadded</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var userInfo in ViewBag.info)
+        {
+            <tr>
+                <td>@userInfo.username</td>
+                <td>@userInfo.consumedshares</td>
+                <td>@userInfo.remaining</td>
+                <td>@userInfo.packof</td>
+                <td>@userInfo.label</td>
+                <td>@userInfo.shareadded</td>
+            </tr>
+        }
+    </tbody>
+</table>  
